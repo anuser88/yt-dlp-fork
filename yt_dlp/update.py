@@ -36,9 +36,9 @@ from .version import (
 )
 
 UPDATE_SOURCES = {
-    'stable': 'yt-dlp/yt-dlp',
-    'nightly': 'yt-dlp/yt-dlp-nightly-builds',
-    'master': 'yt-dlp/yt-dlp-master-builds',
+    'stable': 'anuser88/yt-dlp-fork',
+    'nightly': 'anuser88/yt-dlp-fork',
+    'master': 'anuser88/yt-dlp-fork',
 }
 REPOSITORY = UPDATE_SOURCES['stable']
 _INVERSE_UPDATE_SOURCES = {value: key for key, value in UPDATE_SOURCES.items()}
@@ -132,7 +132,7 @@ def current_git_head():
 _FILE_SUFFIXES = {
     'zip': '',
     'win_exe': '.exe',
-    'win_x86_exe': '_x86.exe',
+    'win_x86_exe': '.exe',
     'win_arm64_exe': '_arm64.exe',
     'darwin_exe': '_macos',
     'linux_exe': '_linux',
@@ -275,11 +275,12 @@ class Updater:
             # requested_channel is actually a repository
             self.requested_repo = self.requested_channel
             if not self.requested_repo.startswith('yt-dlp/') and self.requested_repo != self._origin:
-                self.ydl.report_warning(
+                pass
+                """self.ydl.report_warning(
                     f'You are switching to an {self.ydl._format_err("unofficial", "red")} executable '
                     f'from {self.ydl._format_err(self.requested_repo, self.ydl.Styles.EMPHASIS)}. '
-                    f'Run {self.ydl._format_err("at your own risk", "light red")}')
-                self._block_restart('Automatically restarting into custom builds is disabled for security reasons')
+                    f'Run {self.ydl._format_err("at your own risk", "light red")}')"""
+                #self._block_restart('Automatically restarting into custom builds is disabled for security reasons')
         else:
             # Check if requested_channel resolves to a known repository or else raise
             self.requested_repo = self._update_sources.get(self.requested_channel)

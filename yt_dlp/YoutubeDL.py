@@ -195,7 +195,6 @@ def _catch_unsafe_extension_error(func):
 
     return wrapper
 
-
 class YoutubeDL:
     """YoutubeDL class.
 

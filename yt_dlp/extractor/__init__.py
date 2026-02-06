@@ -29,7 +29,7 @@ def gen_extractors():
     return [klass() for klass in gen_extractor_classes()]
 
 
-def list_extractor_classes(age_limit=None):
+def list_extractor_classes(age_limit=0):
     """Return a list of extractors that are suitable for the given age, sorted by extractor name"""
     from .generic import GenericIE
 
